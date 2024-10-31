@@ -1,5 +1,5 @@
 # sky-shatter-engine
-A vapor, which grows into a cloud, and the a thundercrack splits the sky.
+A vapor, which grows into a cloud, and then a thundercrack splits the sky.
 
 A game engine for the cloud.
 
