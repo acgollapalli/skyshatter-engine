@@ -1,5 +1,7 @@
 # sky-shatter-engine
-Not even a real thing yet
+A vapor, which grows into a cloud, and the a thundercrack splits the sky.
+
+A game engine for the cloud.
 
 Implementation Notes:
 + TODO: Finish Quic Implementation in https://github.com/acgollapalli/odin-quic  
