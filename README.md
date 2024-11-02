@@ -3,7 +3,15 @@ A vapor, which grows into a cloud, and then a thundercrack splits the sky.
 
 A game engine for the cloud.
 
-Implementation Notes:
+## Getting Started:
+This has a lot of moving pieces and right now the work is primarily on dependencies, so I've divided things into submodules:
+
+To get started:
+```
+git clone <this repo> --recurse-submodules
+```
+
+## Implementation Notes:
 + TODO: Finish Quic Implementation in https://github.com/acgollapalli/odin-quic  
 + TODO: Integrate SSL from https://github.com/acgollapalli/odin-ssl  
 + TODO: Implement WebTransport (which probably means implementing HTTP/3 while we're at it  

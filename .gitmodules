@@ -1,0 +1,9 @@
+[submodule "odin"]
+	path = odin
+	url = git@github.com:acgollapalli/odin.git
+[submodule "odin-quic"]
+	path = odin-quic
+	url = git@github.com:acgollapalli/odin-quic.git
+[submodule "odin-ssl"]
+	path = odin-ssl
+	url = git@github.com:acgollapalli/odin-ssl.git
