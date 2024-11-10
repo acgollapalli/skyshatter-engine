@@ -10,3 +10,6 @@
 [submodule "odin-http"]
 	path = odin-http
 	url = git@github.com:laytan/odin-http.git
+[submodule "ols"]
+	path = ols
+	url = git@github.com:DanielGavin/ols.git
