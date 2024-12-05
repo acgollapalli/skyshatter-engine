@@ -2,13 +2,13 @@
 	path = odin
 	url = git@github.com:acgollapalli/odin.git
 [submodule "odin-quic"]
-	path = odin-quic
+	path = net/quic
 	url = git@github.com:acgollapalli/odin-quic.git
-[submodule "odin-ssl"]
-	path = odin-ssl
+[submodule "net/ssl"]
+	path = net/ssl
 	url = git@github.com:acgollapalli/odin-ssl.git
 [submodule "odin-http"]
-	path = odin-http
+	path = net/http
 	url = git@github.com:laytan/odin-http.git
 [submodule "ols"]
 	path = ols

@@ -1,0 +1,9 @@
+package scratch
+
+
+main :: proc() {
+	a := typeid_of(bool)
+	i := true
+	b := typeid_of(type_of(i))
+	#assert(a == b)
+}
