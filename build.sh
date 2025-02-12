@@ -2,6 +2,9 @@
 
 SCRIPTPATH=$(dirname "$SCRIPT")
 BUILDPATH=$(pwd)
+BUILD_COMMAND=./odin/odin
+
+COLLECTIONS="--collection:net=$SCRIPTPATH/net/"
 
 is_windows=false
 
@@ -9,6 +12,7 @@ if [ "$(uname)" = 'Linux' ]; then
 	echo "We're on Linux"
 	if [ -f "/etc/wsl.conf" ]; then
 	    echo "We're on WSL"
+	    BUILD_COMMAND=./odin/odin.exe
 	    is_windows=true
 	fi
 fi
@@ -32,9 +36,9 @@ if [ "$(uname)" = 'OpenBSD' ]; then
 	echo "OpenBSD is untested"
 fi
 
-if [ "$is_windows" = true ]; then 
-	./odin/odin.exe build $1 --collection:net="$SCRIPTPATH/net/"
+if [ $1 = 'test' ]; then 
+	$BUILD_COMMAND test $2 $COLLECTIONS
 else 
-	./odin/odin build $1 --collection:net="$SCRIPTPATH/net/"
+	$BUILD_COMMAND build $1 "$COLLECTIONS"
 fi
 
