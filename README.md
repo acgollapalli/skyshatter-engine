@@ -2,25 +2,25 @@
 
 This is a project to display the capabilities of the Interactive HyperMedia Protocol for making interactive online games.
 
-Some notes on IAHP:
-Programs for the IAHP are client-server programs.
+## Some notes on IAHP:
+Programs for the IAHP are client-server programs.  
 On the client-side, programs run in a wasm64 environment with a subset of the SDL3 GPU apis, some QUIC networking abstractions, a subset of WASI
-including thread spawning, random number, and clock utilities, and some utilities to share memory between processes linked by the host.
-Programs link to one another using their server ID's
+including thread spawning, random number, and clock utilities, and some utilities to share memory between processes linked by the host.  
+Programs link to one another using their server ID's  
 Programs may run at the same time, with the first program providing the second program a texture to render to, which is then
-presented to the screen by the first program.
-Programs may handoff control to one of their child programs.
-Programs are provided the device and either the swapchain image or the texture image for which they should render.
-Programs are also provided api's to choose whether to render fullscreen.
-Programs are provided input data from the host environment.
-Child programs are not provided any of this. All data required for the display will be provided by the parent program.
+presented to the screen by the first program.  
+Programs may handoff control to one of their child programs.  
+Programs are provided the device and either the swapchain image or the texture image for which they should render.  
+Programs are also provided api's to choose whether to render fullscreen.  
+Programs are provided input data from the host environment.  
+Child programs are not provided any of this. All data required for the display will be provided by the parent program.  
 
-Programs, regardless of whether they are a parent program or a child program, will have access to the network via iahp.
-Programs may share memory between parent and child processes.
-Programs will NOT have to use the asynchronous model of the browser. A simple main-loop will do.
+Programs, regardless of whether they are a parent program or a child program, will have access to the network via iahp.  
+Programs may share memory between parent and child processes.  
+Programs will NOT have to use the asynchronous model of the browser. A simple main-loop will do.  
 
-Some notes on the engine:
-I originally started this in Odin, and got as far as a quic implementation, some mappings for wasi, and some work on a game using the SDL gpu api.
+## Some notes on the engine:
+I originally started this in Odin, and got as far as a quic implementation, some mappings for wasi, and some work on a game using the SDL gpu api.  
 I think the SDL gpu api is the right thing because, while it is a bit more restrictive than something like Vulkan, it is sufficiently powerful for
 the sort of games I expect to be initially made. Moreover, unlike WebGPU, the SDL is made by games people for games people, and for the games
 people are making. If there is something people need for their games, it'll most likely be added. I can't expect the same from the implementers of
