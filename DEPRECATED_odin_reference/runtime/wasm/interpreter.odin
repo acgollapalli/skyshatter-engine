@@ -13,23 +13,31 @@ import "core:encoding/varint"
 MAX_JUMP_LABELS :: 512
 MAX_STACK_HEIGHT :: 4096
 
-push_val :: proc(operand: $T, stack_full: []u64, stack: ^[]u64) {
+push_val :: proc(operand: $T, stack_full: []u64, stack: ^[]u64) -> bool {
+    len(stack) < len(stack_full) or_return
+        
     stack_full[len(stack)] = transmute(u64)operand; // WARNING(caleb): may not work for 32 bit values
     stack^ = stack_full[len(stack)+1];
 }
 
 pop_val :: proc($T: typeid, stack_full: []u64, stack: ^[]u64) -> $T {
+    len(stack) < 0 or_return
+        
     stack^ = stack[:len(stack) -1]
     return transmute(T)stack_full[len(stack)]
 }
 
 peek_val :: proc($T: typeid, stack_full: []u64, stack: ^[]u64) -> $T {
+    if len(stack) == 0 do return {}
+    
 	return transmute(T)stack_full[len(stack)]
 }    
 
 push_vec :: proc(operand:[$N]$T, stack_full: []u64, stack:^[]u64) {
     N_aligned := size_of(operand) / size_of(u64)
 #assert(N_aligned > 1)
+    len(stack) + N_aligned <= len(stack_full) or_return
+        
     operand_vec_aligned := transmute([N_aligned]u64)operand;
     // NOTE(caleb): could we just do a transmute here, like in pop_vec?
     for op, i in operand {
@@ -41,6 +49,8 @@ push_vec :: proc(operand:[$N]$T, stack_full: []u64, stack:^[]u64) {
 pop_vec :: proc(out_type: $T, stack_full: []u64, stack:^[]u64) -> (out: T) {
     N_aligned := size_of(out_type) / size_of(u64)
 #assert(N_aligned > 1)
+    len(stack) >= N_aligned or_return
+        
     out = transmute(T)raw_data(stack[len(stack) - N_aligned:])
     stack^ = stack[:len(stack) - N_aligned]
     return 

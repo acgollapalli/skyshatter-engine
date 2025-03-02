@@ -1,15 +1,15 @@
 [submodule "odin"]
-	path = odin
+	path = DEPRECATED_odin_reference/odin
 	url = git@github.com:acgollapalli/odin.git
 [submodule "odin-quic"]
-	path = net/quic
+	path = DEPRECATED_odin_reference/net/quic
 	url = git@github.com:acgollapalli/odin-quic.git
 [submodule "net/ssl"]
-	path = net/ssl
+	path = DEPRECATED_odin_reference/net/ssl
 	url = git@github.com:acgollapalli/odin-ssl.git
 [submodule "odin-http"]
-	path = net/http
+	path = DEPRECATED_odin_reference/net/http
 	url = git@github.com:laytan/odin-http.git
 [submodule "ols"]
-	path = ols
+	path = DEPRECATED_odin_reference/ols
 	url = git@github.com:DanielGavin/ols.git
